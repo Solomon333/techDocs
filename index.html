@@ -1,0 +1,170 @@
+<html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Thechnical doc page</title>
+</head>
+<body>
+    <nav id="navbar">
+        <header>DOM Docomention</header>
+        <a class="nav-link" href="#What_is_the_DOM">What is the DOM?</a>
+        <a class="nav-link" href="#DOM_and_JavaScript">DOM and JavaScript</a>
+        <a class="nav-link" href="#Accessing_the_DOM">Accessing the DOM</a>
+        <a class="nav-link" href="#DOM_interfaces">DOM interfaces</a>
+        <a class="nav-link" id="link5" href="#Example">Example</a>
+        <a class="nav-link" href="#See_also" style="color:#14213D">See also</a>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="What_is_the_DOM">
+            <header >What is the DOM?</header>
+              <article>
+                <h4>The Document Object Model </h4>
+            <p>The Document Object Model (DOM) is a programming interface for web documents. It represents the page
+                 so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects; that way, programming languages can interact with the page.</p>
+            <p>A web page is a document that can be either displayed in the browser window or as the HTML source. 
+                In both cases, it is the same document but the Document Object Model (DOM) representation allows it to be manipulated. As an object-oriented representation of the web page, it can be modified with a scripting language such as JavaScript.</p>     
+                    
+                        <pre>
+                 <code>
+            const paragraphs = document.querySelectorAll("p");
+            // paragraphs[0] is the first element 
+            // paragraphs[1] is the second element, etc.
+            alert(paragraphs[0].nodeName);
+                
+                 </code>
+                </pre>
+                
+                 <p>All of the properties, methods, and events available for manipulating and creating web pages are organized into objects. For example, the document object that represents the document itself, 
+                     any table objects that implement the HTMLTableElement DOM interface for accessing HTML tables, and so forth, are all objects.</p>
+                   
+              </article>
+        </section>
+        <section class="main-section" id="DOM_and_JavaScript">
+            <header >DOM and JavaScript</header>
+          <article>
+            <h4>this section</h4>
+            <p>The previous short example, like nearly all examples, is JavaScript. That is to say, it is written in JavaScript, 
+                but uses the DOM to access the document and its elements. The DOM is not a programming 
+                language, but without it, the JavaScript language wouldn't have any model or notion of web pages, HTML documents,
+                 SVG documents, and their component parts. The document as a whole, the head, tables within the document, table headers, 
+                 text within the table cells, and all other elements in a document are parts of the document object model for that document.
+                  They can all be accessed and manipulated using the DOM and a scripting language like JavaScript.</p>
+                <p>The DOM is not part of the JavaScript language, but is instead a Web API used to build websites. JavaScript can also be
+                     used in other contexts. For example,
+                     Node.js runs JavaScript programs on a computer, but provides a different set of APIs, 
+                     and the DOM API is not a core part of the Node.js runtime.</p> 
+             <p>The DOM was designed to be independent of any particular programming language, making the structural representation of the document 
+                 available from a single, consistent API:</p>
+                     <ul class="list">
+                         <li>DOM through JavaScript</li>
+                         <li>DOM can be built for any language</li>
+                         <li>Node.js runtime</li>
+                     </ul>
+                     <p>as this Python example demonstrates:</p>
+                     <pre>
+                        <code>
+                # Python DOM example
+                import xml.dom.minidom as m
+                doc = m.parse(r"C:\Projects\Py\chap1.xml")
+                doc.nodeName # DOM property of document object
+                p_list = doc.getElementsByTagName("para")
+                           </code>
+                         </pre>
+          </article>
+        </section>
+        <section class="main-section" id="Accessing_the_DOM">
+            <header >Accessing the DOM</header>
+            <article>
+              <h4>this section</h4>
+            <p>You don't have to do anything special to begin using the DOM. You use the API directly in JavaScript from within what is
+                 called a script, a program run by a browser.</p>
+                <p>As it is generally not recommended to mix the structure of the page (written in HTML) and manipulation of the DOM (written in JavaScript), the JavaScript parts will be grouped
+                     together here, and separated from the HTML.</p>
+                     <p>Your DOM programming may be something as simple as the following example, which displays a message on the console by using the console.log() function:</p>
+                <pre>
+               <code>
+            < body onload="console.log('Welcome to my home page!');"> 
+               </code>
+                </pre>
+          </article>
+        </section>
+        <section class="main-section" id="DOM_interfaces">
+            <header >DOM interfaces</header>
+            <article>
+              <h4>this section</h4>
+            <p>This guide is about the objects and the actual things you can use to manipulate the DOM hierarchy. There are many points where understanding how these work can be confusing. For example, the object representing the HTML form element gets its name property from the HTMLFormElement interface but its className property from the HTMLElement interface. In both cases,
+                 the property you want is in that form object.</p>
+     <pre>           
+    <code>
+        const table = document.getElementById("table");
+        const tableAttrs = table.attributes; // Node/Element interface
+        for (let i = 0; i < tableAttrs.length; i++) {
+        // HTMLTableElement interface: border attribute
+        if(tableAttrs[i].nodeName.toLowerCase() == "border")
+        table.border = "1";
+        }
+        // HTMLTableElement interface: summary attribute
+        table.summary = "note: increased border";
+                </code>
+            </pre>  
+            
+               <p>This section lists some of the most commonly-used interfaces in the DOM. The idea is not to describe what these APIs do here but to give you an idea of the sorts of methods and properties 
+                   you will see very often as you use the DOM</p>
+                     <ul class="list">
+                         <li> DOM programming.</li>
+                         <li> the window object represents something like the browser</li>
+                         <li>These elements may also have specific interfaces </li>
+                     </ul>
+          </article>
+        </section>
+        <section class="main-section" id="Example">
+            <header>Example</header>
+            <article>
+              <h4> this section</h4>
+            <p>The following simple example illustrates using the DOM Document API — specifically, it illustrates
+                 using the body property of the Document API to change:</p>
+                 <ul>
+                     <li>the document's text colo</li>
+                     <li>the document’s background color</li>
+                     <li>the documents’s link color (that is, the color of any 
+                         hypertext links anywhere in the document)</li>
+                 </ul>
+                <pre>
+                <code>
+     < html>
+        < head>
+            < script>
+            // run this function when the document is loaded
+            window.onload = function() {
+
+                // create a couple of elements in an otherwise empty HTML page
+                const heading = document.createElement("h1");
+                const heading_text = document.createTextNode("Big Head!");
+                heading.appendChild(heading_text);
+                document.body.appendChild(heading);
+            }
+            < /script>
+        < /head>
+        < body>
+        < /body>
+        < /html>
+            </code>
+                </pre>
+                
+               <p>When you get a reference to a table object, as in the following example, you routinely use all three of these interfaces interchangeably
+                    on the object, perhaps without knowing it. </p>
+                    
+          </article>
+        </section>
+        <section class="main-section" id="See_also">
+            <header style= "color: #14213D">See also </header>
+            <p>see <a href="https://developer.mozilla.org/en-US/" target="_blank" style="color: blue;">here</a> for more information</a></p>
+            </section>
+    </main>
+  
+    
+</body>
+</html>
