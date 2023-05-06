@@ -1,6 +1,4 @@
-TechDocs
+TechDocs - technical docometation page.
 
-- technical docometation page.
-
-- HTML5, CSS3.
+- made with HTML5, CSS3.
 
